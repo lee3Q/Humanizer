@@ -29,5 +29,10 @@ surfaces:
         - 'septante'
         - 'octante'
         - 'nonante'
+    parse:
+      cardinalMap:
+        septante: 70
+        octante: 80
+        nonante: 90
     formatting:
       decimalSeparator: '.'
