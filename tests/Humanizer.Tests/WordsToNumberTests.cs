@@ -287,6 +287,51 @@ public class WordsToNumberTests_French
     }
 }
 
+[UseCulture("fr-BE")]
+public class WordsToNumberTests_FrenchBelgian
+{
+    [Theory]
+    [InlineData("septante", 70, null)]
+    [InlineData("septante et un", 71, null)]
+    [InlineData("septante-cinq", 75, null)]
+    [InlineData("quatre-vingts", 80, null)]
+    [InlineData("quatre-vingt-un", 81, null)]
+    [InlineData("nonante", 90, null)]
+    [InlineData("nonante et un", 91, null)]
+    [InlineData("nonante-neuf", 99, null)]
+    [InlineData("cent septante", 170, null)]
+    [InlineData("mille trois cent septante et un", 1371, null)]
+    [InlineData("nonante-deux mille", 92000, null)]
+    public void TryToNumber_ValidInput_FrenchBelgian(string words, int expectedNumber, string? expectedUnrecognizedWord)
+    {
+        Assert.True(words.TryToNumber(out var parsedNumber, CultureInfo.CurrentCulture, out var unrecognizedWord));
+        Assert.Equal(expectedUnrecognizedWord, unrecognizedWord);
+        Assert.Equal(expectedNumber, parsedNumber);
+    }
+}
+
+[UseCulture("fr-CH")]
+public class WordsToNumberTests_FrenchSwiss
+{
+    [Theory]
+    [InlineData("septante", 70, null)]
+    [InlineData("septante et un", 71, null)]
+    [InlineData("septante-neuf", 79, null)]
+    [InlineData("octante", 80, null)]
+    [InlineData("octante et un", 81, null)]
+    [InlineData("nonante", 90, null)]
+    [InlineData("nonante-neuf", 99, null)]
+    [InlineData("cent septante", 170, null)]
+    [InlineData("mille trois cent septante et un", 1371, null)]
+    [InlineData("nonante-deux mille", 92000, null)]
+    public void TryToNumber_ValidInput_FrenchSwiss(string words, int expectedNumber, string? expectedUnrecognizedWord)
+    {
+        Assert.True(words.TryToNumber(out var parsedNumber, CultureInfo.CurrentCulture, out var unrecognizedWord));
+        Assert.Equal(expectedUnrecognizedWord, unrecognizedWord);
+        Assert.Equal(expectedNumber, parsedNumber);
+    }
+}
+
 [UseCulture("it")]
 public class WordsToNumberTests_Italian
 {
