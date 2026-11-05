@@ -28,3 +28,7 @@ surfaces:
         - 'septante'
         - 'quatre-vingt'
         - 'nonante'
+    parse:
+      cardinalMap:
+        septante: 70
+        nonante: 90
